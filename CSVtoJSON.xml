@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<System name="CSVtoJSON">
+  <Parameters>
+    <Parameter id="4" name="s_option" type="2">
+      <values>
+        <value>true</value>
+        <value>false</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+    <Parameter id="5" name="d_option" type="2">
+      <values>
+        <value>true</value>
+        <value>false</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+    <Parameter id="6" name="t_option" type="2">
+      <values>
+        <value>true</value>
+        <value>false</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+    <Parameter id="7" name="is_file_empty" type="2">
+      <values>
+        <value>true</value>
+        <value>false</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+    <Parameter id="8" name="bool_num" type="2">
+      <values>
+        <value>true</value>
+        <value>false</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+    <Parameter id="9" name="field_separator" type="1">
+      <values>
+        <value>commas</value>
+        <value>tab</value>
+        <value>colon</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+    <Parameter id="10" name="valid_input" type="2">
+      <values>
+        <value>true</value>
+        <value>false</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+    <Parameter id="11" name="valid_output" type="2">
+      <values>
+        <value>true</value>
+        <value>false</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+  </Parameters>
+  <OutputParameters />
+  <Relations />
+  <Constraints>
+    <Constraint text="(t_option = true)=&gt;(s_option = false)">
+      <Parameters>
+        <Parameter name="t_option" />
+        <Parameter name="s_option" />
+      </Parameters>
+    </Constraint>
+    <Constraint text="(s_option = true) =&gt; (t_option = false)">
+      <Parameters>
+        <Parameter name="s_option" />
+        <Parameter name="t_option" />
+      </Parameters>
+    </Constraint>
+    <Constraint text="bool_num = false =&gt; d_option = false">
+      <Parameters>
+        <Parameter name="bool_num" />
+        <Parameter name="d_option" />
+      </Parameters>
+    </Constraint>
+    <Constraint text="(s_option = true) =&gt; field_separator = &quot;colon&quot;">
+      <Parameters>
+        <Parameter name="s_option" />
+        <Parameter name="field_separator" />
+      </Parameters>
+    </Constraint>
+    <Constraint text="(s_option = false) =&gt; field_separator = &quot;commas&quot;">
+      <Parameters>
+        <Parameter name="s_option" />
+        <Parameter name="field_separator" />
+      </Parameters>
+    </Constraint>
+    <Constraint text="(t_option = true) =&gt; field_separator = &quot;tab&quot;">
+      <Parameters>
+        <Parameter name="t_option" />
+        <Parameter name="field_separator" />
+      </Parameters>
+    </Constraint>
+    <Constraint text="(is_file_empty = true) =&gt; s_option = false &amp;&amp; t_option = false &amp;&amp; d_option = false &amp;&amp; field_separator = &quot;commas&quot; &amp;&amp; valid_output = true &amp;&amp; valid_input = true &amp;&amp; bool_num =false">
+      <Parameters>
+        <Parameter name="is_file_empty" />
+        <Parameter name="s_option" />
+        <Parameter name="t_option" />
+        <Parameter name="d_option" />
+        <Parameter name="field_separator" />
+        <Parameter name="valid_output" />
+        <Parameter name="valid_input" />
+        <Parameter name="bool_num" />
+      </Parameters>
+    </Constraint>
+    <Constraint text="valid_input = false =&gt; s_option = false &amp;&amp; t_option = false &amp;&amp; d_option = false &amp;&amp; bool_num= false ">
+      <Parameters>
+        <Parameter name="valid_input" />
+        <Parameter name="s_option" />
+        <Parameter name="t_option" />
+        <Parameter name="d_option" />
+        <Parameter name="bool_num" />
+      </Parameters>
+    </Constraint>
+    <Constraint text="valid_input false =&gt; valid_output = false">
+      <Parameters>
+        <Parameter name="valid_input" />
+      </Parameters>
+    </Constraint>
+  </Constraints>
+  <Testset doi="3">
+    <Testcase TCNo="0">
+      <Value>1</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>commas</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+    </Testcase>
+    <Testcase TCNo="1">
+      <Value>2</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>commas</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+    </Testcase>
+    <Testcase TCNo="2">
+      <Value>3</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>colon</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+    </Testcase>
+    <Testcase TCNo="3">
+      <Value>4</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>colon</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+    </Testcase>
+    <Testcase TCNo="4">
+      <Value>5</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>commas</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+    </Testcase>
+    <Testcase TCNo="5">
+      <Value>6</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>commas</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+    </Testcase>
+    <Testcase TCNo="6">
+      <Value>7</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>colon</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+    </Testcase>
+    <Testcase TCNo="7">
+      <Value>8</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>colon</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+    </Testcase>
+    <Testcase TCNo="8">
+      <Value>9</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>colon</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+    </Testcase>
+    <Testcase TCNo="9">
+      <Value>10</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>commas</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+    </Testcase>
+  </Testset>
+  <Header>
+    <Value />
+    <Value>S_OPTION</Value>
+    <Value>D_OPTION</Value>
+    <Value>T_OPTION</Value>
+    <Value>IS_FILE_EMPTY</Value>
+    <Value>BOOL_NUM</Value>
+    <Value>FIELD_SEPARATOR</Value>
+    <Value>VALID_INPUT</Value>
+    <Value>VALID_OUTPUT</Value>
+  </Header>
+  <Stat-Data>
+    <ExecutionTime>0.043</ExecutionTime>
+    <MaxDomainSize>3</MaxDomainSize>
+    <MinDomainSize>2</MinDomainSize>
+    <TotalNoOfCombination>225</TotalNoOfCombination>
+    <TotalNoOfTests>10</TotalNoOfTests>
+    <Algorithm>IPOG</Algorithm>
+  </Stat-Data>
+</System>
+
