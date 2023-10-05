@@ -1,0 +1,16 @@
+<Testcase TCNo="4">
+    <Value>5</Value>
+    <Value>false</Value>
+    <Value>false</Value>
+    <Value>false</Value>
+    <Value>false</Value>
+    <Value>true</Value>
+    <Value>commas</Value>
+    <Value>true</Value>
+    <Value>false</Value>
+</Testcase>
+Album,Artist,Year,Peak,Recommended
+SOS,SZA,2022,1,true
+Nicole,NIKI,2022,64,true
+Pure BS,Blake Shelton,2007,8,false
+Nurture,Porter Robinson,2021,52,true
