@@ -1,5 +1,5 @@
-Album:Artist:Genre
-SOS:SZA:R&B
-Nicole:NIKI:Pop
-Pure BS:Blake Shelton:Country
-Nurture:Porter Robinson:EDM
+Album Artist Year Peak Recommended
+SOS SZA 2022 1 true
+Nicole NIKI 2022 64 true
+"Pure BS" "Blake Shelton" 2007 8 false
+Nurture "Porter Robinson" 2021 52 true
