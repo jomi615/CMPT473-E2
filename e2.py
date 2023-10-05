@@ -50,7 +50,11 @@ def CsvtoJsonArg(input,output,testNum, D,S,T,sep):
 
 def test():
     for idx, testcase in enumerate(test_cases):
-        CsvtoJsonArg(f'TestData{testcase["Test No."]}.csv',f'TestJson{testcase["Test No."]}.json',testcase["Test No."], testcase["D_OPTION"],testcase["S_OPTION"], testcase["T_OPTION"], testcase['FIELD_SEPARATOR'] )
+        wrong = ''
+        if testcase["VALID_INPUT"] == "false":
+            wrong = 'wrong'
+
+        CsvtoJsonArg(f'TestData{testcase["Test No."]+wrong}.csv',f'TestJson{testcase["Test No."]}.json',testcase["Test No."], testcase["D_OPTION"],testcase["S_OPTION"], testcase["T_OPTION"], testcase['FIELD_SEPARATOR'] )
 
     for x in range(1,11):
         print(f'test{x}:')
