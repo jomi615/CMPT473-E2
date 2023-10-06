@@ -1,6 +1,6 @@
 [
-{"Album":"SOS","Artist":"SZA","Year":2022,"Peak":1,"Recommended":true},
-{"Album":"Nicole","Artist":"NIKI","Year":2022,"Peak":64,"Recommended":true},
-{"Album":"Pure BS","Artist":"Blake Shelton","Year":2007,"Peak":8,"Recommended":false},
-{"Album":"Nurture","Artist":"Porter Robinson","Year":2021,"Peak":52,"Recommended":true}
+{"Album:Fav,Artist":"SOS,SZA",",Year,Peak,Recommended":",2022,1,true"},
+{"Album:Fav,Artist":"Nicole,NIKI,2022,64,true"},
+{"Album:Fav,Artist":"Pure: BS,Blake Shelton,2007,8,false"},
+{"Album:Fav,Artist":"Nurture,Porter Robinson,2021,52,true"}
 ]

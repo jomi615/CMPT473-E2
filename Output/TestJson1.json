@@ -1,6 +1,6 @@
 [
-{"Album,Artist,Genre":"SOS,SZA,R&B"},
-{"Album,Artist,Genre":"Nicole,NIKI,Pop"},
-{"Album,Artist,Genre":"Pure BS,Blake Shelton,Country"},
-{"Album,Artist,Genre":"Nurture,Porter Robinson,EDM"}
+{"Album:Fav,Artist":"SOS,SZA",",Genre":",R&B"},
+{"Album:Fav,Artist":"Nicole,NIKI,Pop"},
+{"Album:Fav,Artist":"Pure: BS,Blake Shelton,Country"},
+{"Album:Fav,Artist":"Nurture,Porter Robinson,EDM"}
 ]

@@ -74,13 +74,13 @@ def generateInput ():
     print("CSV files have been moved to the folder:", folder_name)
 
 
-def CsvtoJsonArg(input,output,testNum, D,S,T,sep):
+def CsvtoJsonArg(input,output,testNum, D,S,T,sep, validInput, validOutput):
     options = ''    
     fsep = ''
     if(sep == 'comma'):
         fsep += "','"
     if(sep == 'tab'):
-        fsep += "'  '"
+        fsep += "'	'"
     if(sep == 'colon'):
         fsep += "':'"
 
@@ -128,8 +128,14 @@ def test():
         wrong = ''
         if testcase["VALID_INPUT"] == "false":
             wrong = 'wrong'
+        if testcase['IS_FILE_EMPTY'] == 'true':
+            CsvtoJsonArg(f'TestData3{wrong}.csv',f'TestJson{testcase["Test No."]}.json',testcase["Test No."], testcase["D_OPTION"],testcase["S_OPTION"], testcase["T_OPTION"], testcase['FIELD_SEPARATOR'], testcase['VALID_INPUT'], testcase['VALID_OUTPUT'])
+        elif testcase['BOOL_NUM'] == 'true':
+            CsvtoJsonArg(f'TestData2{wrong}.csv',f'TestJson{testcase["Test No."]}.json',testcase["Test No."], testcase["D_OPTION"],testcase["S_OPTION"], testcase["T_OPTION"], testcase['FIELD_SEPARATOR'], testcase['VALID_INPUT'], testcase['VALID_OUTPUT'])
+        else:
+            CsvtoJsonArg(f'TestData1{wrong}.csv',f'TestJson{testcase["Test No."]}.json',testcase["Test No."], testcase["D_OPTION"],testcase["S_OPTION"], testcase["T_OPTION"], testcase['FIELD_SEPARATOR'], testcase['VALID_INPUT'], testcase['VALID_OUTPUT'])
 
-        CsvtoJsonArg(f'TestData{testcase["Test No."]+wrong}.csv',f'TestJson{testcase["Test No."]}.json',testcase["Test No."], testcase["D_OPTION"],testcase["S_OPTION"], testcase["T_OPTION"], testcase['FIELD_SEPARATOR'], testcase['VALID_INPUT'], testcase['VALID_OUTPUT'])
+
     
         outputMessage = "TestDataOutputMessage"
         out = f'Output/TestJson{idx+1}.json'
