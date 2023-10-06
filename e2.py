@@ -2,12 +2,18 @@ import os
 import io
 import filecmp
 import xml.etree.ElementTree as ET
+import csv
+import shutil
 
 inputPath = 'TestData/'
 outputPath = "Output/"
 expectedPath = 'ExpectedOutput'
 
-
+albums = ['SOS', 'Nicole', '"Pure BS"', 'Nurture']
+artists = ['SZA', 'NIKI', '"Blake Shelton"', '"Porter Robinson"']
+genres = ['R&B', 'Pop', 'Country', 'EDM']
+years = [2022, 2022, 2021, 2007]
+recs = [True, True, False, True]
 
 # Parse the XML file
 tree = ET.parse('csv2json.xml')
@@ -22,7 +28,49 @@ for testcase in root.findall('./Testset/Testcase'):
         tc_data[header] = value_element.text
     test_cases.append(tc_data)
 
+# Generate input files
+def generateInput ():
+    folder_name = "AutoTest"
+    os.makedirs(folder_name, exist_ok=True)
 
+    for testcase in test_cases:
+        filename = "TestData" + str(testcase['Test No.']) + ".csv"
+
+        if testcase['IS_FILE_EMPTY'] == 'true':
+            with open(filename, "w", newline="") as csv_file:
+                pass
+        else:
+            delimiter = ""
+            if testcase['T_OPTION'] == 'true':
+                delimiter = '\t'
+            else:
+                if testcase['FIELD_SEPARATOR'] == 'comma':
+                    delimiter = ","
+                elif testcase['FIELD_SEPARATOR'] == 'colon':
+                    delimiter = ":"
+                elif testcase['FIELD_SEPARATOR'] == 'tab':
+                    delimiter = '\t'
+                else:
+                    delimiter = ","  
+            
+
+            with open(filename, 'w', newline="") as csv_file:
+                csv_writer = csv.writer(csv_file, delimiter=delimiter, quoting=csv.QUOTE_NONE, escapechar=' ')
+                
+                if testcase['BOOL_NUM'] == 'true':
+                    csv_writer.writerow(["Album", "Artist", "Genre", "Year", "Recommended"])
+                    for album, artist, genre, year, rec in zip(albums, artists, genres, years, recs):
+                        csv_writer.writerow([album, artist, genre, year, rec])
+
+                else:
+                    csv_writer.writerow(["Album", "Artist", "Genre"])
+                    for album, artist, genre in zip(albums, artists, genres):
+                        csv_writer.writerow([album, artist, genre])
+            
+        destination = os.path.join(folder_name, filename)
+        shutil.move(filename, destination)
+
+    print("CSV files have been moved to the folder:", folder_name)
 
 
 def CsvtoJsonArg(input,output,testNum, D,S,T,sep):
@@ -68,4 +116,5 @@ def test():
 
 
 if __name__ == "__main__":
+    generateInput()
     test()
