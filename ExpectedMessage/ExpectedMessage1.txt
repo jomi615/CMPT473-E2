@@ -1,2 +1,0 @@
-Case1
-Program Output and Expected Output match

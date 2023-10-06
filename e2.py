@@ -74,7 +74,7 @@ def generateInput ():
     print("CSV files have been moved to the folder:", folder_name)
 
 
-def CsvtoJsonArg(input,output,testNum, D,S,T,sep):
+def CsvtoJsonArg(input,output,testNum, D,S,T,sep, validInput, validOutput):
     options = ''    
     fsep = ''
     if(sep == 'comma'):
@@ -140,7 +140,13 @@ def test():
            msg = f'Case{testcase["Test No."]}' + '\n' "Program Output and Expected Output do not match"
 
         with open(outputMessage + f'/OutputMessage{idx+1}.txt', 'w') as file:
-            file.write((msg + '\n\n'))  
+            file.write((msg + '\n'))
+        outputMessagePath = outputMessage + f'/OutputMessage{idx+1}.txt'
+        expectedMessagePath = "ExpectedMessage/" + f'ExpectedMessage{idx+1}.txt'
+        if filecmp.cmp(outputMessagePath, expectedMessagePath):
+            print(f'Test Case{idx+1}: Messages Matching')
+        else:
+            print(f'Test Case{idx+1}: Messages Not Matching') 
 
     
 if __name__ == "__main__":

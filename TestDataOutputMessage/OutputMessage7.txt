@@ -1,3 +1,0 @@
-Case7
-Program Output and Expected Output match
-
