@@ -1,6 +1,6 @@
 [
 {"Album:Fav,Artist":"SOS,SZA",",Year,Peak,Recommended":",2022,1,true"},
-{"Album:Fav,Artist":"Nicole,NIKI,2022,64,true"},
+{"Album:Fav,Artist":"Nicole,NIKI,2022,64,:true"},
 {"Album:Fav,Artist":"Pure: BS,Blake Shelton,2007,8,false"},
-{"Album:Fav,Artist":"Nurture,Porter Robinson,2021,52,true"}
+{"Album:Fav,Artist":"Nurture,Porter Robinson,2021,52,",",Year,Peak,Recommended":true}
 ]
