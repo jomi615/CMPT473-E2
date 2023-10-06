@@ -150,9 +150,9 @@ def test():
         outputMessagePath = outputMessage + f'/OutputMessage{idx+1}.txt'
         expectedMessagePath = "ExpectedMessage/" + f'ExpectedMessage{idx+1}.txt'
         if filecmp.cmp(outputMessagePath, expectedMessagePath):
-            print(f'Test Case{idx+1}: Messages Matching')
+            print(f'Test Case{idx+1}: Passed')
         else:
-            print(f'Test Case{idx+1}: Messages Not Matching') 
+            print(f'Test Case{idx+1}: Failed') 
 
     
 if __name__ == "__main__":
