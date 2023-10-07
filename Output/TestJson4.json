@@ -1,6 +1,5 @@
 [
-{"Album":"SOS,SZA\t,2022,1,true"},
-{"Album":"Nicole,NIKI,2022,64,","Fav,Artist\t,Year,Peak,Recommended":true},
-{"Album":"Pure","Fav,Artist\t,Year,Peak,Recommended":" BS,Blake Shelton,2007,8,false"},
-{"Album":"Nurture,Porter Robinson,2021,52,\ttrue"}
+{"Album,Artist,Year,Peak,Recommended":"SOS,SZA,2022,1,true"},
+{"0":"Nicole","1":"NIKI","2":2022,"3":64,"4":true},
+{"0":"Pure BS\tBlake Shelton\t2007\t8\tfalse"}
 ]

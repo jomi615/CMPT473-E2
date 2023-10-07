@@ -1,2 +1,2 @@
 Case2
-Program Output and Expected Output do not match
+Program Output and Expected Output match
