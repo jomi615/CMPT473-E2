@@ -135,16 +135,19 @@ def test():
         else:
             CsvtoJsonArg(f'TestData1{wrong}.csv',f'TestJson{testcase["Test No."]}.json',testcase["Test No."], testcase["D_OPTION"],testcase["S_OPTION"], testcase["T_OPTION"], testcase['FIELD_SEPARATOR'], testcase['VALID_INPUT'], testcase['VALID_OUTPUT'])
 
-
-    
         outputMessage = "TestDataOutputMessage"
         out = f'Output/TestJson{idx+1}.json'
         exp = f'ExpectedOutput/Output{idx+1}.json'
         if filecmp.cmp(out,exp):
-           msg = f'Case{testcase["Test No."]}' + '\n' "Program Output and Expected Output match"
+           if testcase['VALID_INPUT'] == 'false' and testcase['VALID_OUTPUT'] == 'true':
+                msg = f'Case{testcase["Test No."]}' + '\n' "Invalid Input File"
+           elif testcase['VALID_INPUT'] == 'true' and testcase['VALID_OUTPUT'] == 'false':
+                msg = f'Case{testcase["Test No."]}' + '\n' "Invalid Output File"
+           else:
+                msg = f'Case{testcase["Test No."]}' + '\n' "Program Output and Expected Output match"
+
         else:
            msg = f'Case{testcase["Test No."]}' + '\n' "Program Output and Expected Output do not match"
-
         with open(outputMessage + f'/OutputMessage{idx+1}.txt', 'w') as file:
             file.write((msg + '\n'))
         outputMessagePath = outputMessage + f'/OutputMessage{idx+1}.txt'
